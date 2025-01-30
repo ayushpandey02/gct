@@ -19,6 +19,24 @@ function hideLoading() {
     }
 }
 
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent HTML submission
+  
+  // Create payload of type multipart/form-data (awlays of this type when using the FormData() constructor):
+  const fd = new FormData(form);
+
+  // Convert to URL-encoded string:
+  const urlEncoded = new URLSearchParams(fd).toString();
+  
+  fetch('http://localhost:3000/api/v1/user/submit-form/', {
+    method: "POST",
+    body: fd, // just 'fd' for multipart/form-data
+    
+  })
+
+})
 // Function to handle file uploads
 function handleFileUpload(inputId, previewId) {
     const input = document.getElementById(inputId);
