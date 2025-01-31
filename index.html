@@ -1,194 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cricket Player Registration</title>
+    <title>GCT 2024</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme {
-        --color-clifford: #da373d;
-      }
-    </style>
 </head>
+<body class="bg-gradient-to-b from-red-100 to-white min-h-screen">
+    <div class="container mx-auto px-4 py-16">
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <img src="./logo1.png" alt="GCT Logo" class="mx-auto w-32 h-32 md:w-48 md:h-48 mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Goregaon Champions Trophy</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8">Join the biggest cricket tournament of the year</p>
+            <a href="/registration.html" 
+               class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold 
+                      hover:bg-indigo-700 transform hover:scale-105 transition-all duration-200">
+                Register Now
+            </a>
+        </div>
 
-<body class="bg-red-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8  ">
-    <!-- <img src="./logo.png" class= "flex items-center justify-center"alt="LOGO" srcset=""/> -->
-    <div class="flex  flex-col items-center justify-center ">
-        <img class = "w-25 h-25 md:w-35 md:h-35" src="./logo1.png" alt="" srcset="">
-        <h1 class="text-2xl md:text-4xl font-bold mb-6 text-center text-gold-800">GOREGAON CHAMPIONS TROPHY</h1>
-    </div>
-    <div class="max-w-md mx-auto rounded-lg shadow-md p-8 isolate aspect-video w-96 rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5">
-        <h2 class="text-xl font-bold mb-6 text-center text-gray-800">Player Registration</h2>
-        <!-- Progress Steps -->
-        <div class="flex justify-between mb-8">
-            <div class="step-item active" data-step="1">
-                <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white">1</div>
-                <p class="text-xs mt-1">Personal Info</p>
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="text-indigo-600 text-4xl mb-4">🏆</div>
+                <h3 class="text-xl font-bold mb-2">Cash Prizes</h3>
+                <p class="text-gray-600">Win exciting cash prizes worth ₹50,000</p>
             </div>
-            <div class="step-item" data-step="2">
-                <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">2</div>
-                <p class="text-xs mt-1">Photos</p>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="text-indigo-600 text-4xl mb-4">🏏</div>
+                <h3 class="text-xl font-bold mb-2">Professional Setup</h3>
+                <p class="text-gray-600">Play with professional cricket equipment</p>
             </div>
-            <div class="step-item" data-step="3">
-                <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">3</div>
-                <p class="text-xs mt-1">Payment</p>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="text-indigo-600 text-4xl mb-4">📺</div>
+                <h3 class="text-xl font-bold mb-2">Live Streaming</h3>
+                <p class="text-gray-600">Matches streamed live on YouTube</p>
             </div>
         </div>
 
-        <form id="registrationForm" class="space-y-6">
-            <!-- Step 1: Personal Information -->
-            <div id="step1" class="step-content">
-                <div class="space-y-6">
-                    <!-- Name -->
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                        <p class="mt-1 text-xs text-gray-500">Enter your full name </p>
-                    </div>
-
-                    <!-- Age -->
-                    <div>
-                        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
-                        <input type="number" id="age" name="age" min="0" required
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                        <p class="mt-1 text-xs text-gray-500">Must be between 13 and 45 years</p>
-                    </div>
-
-                    <!-- Ward Selection -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Ward</label>
-                        <div class="space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="ward" value="Ward 40" required class="form-radio text-indigo-600">
-                                <span class=" ward ml-2">Ward 40</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="ward" value="Ward 41" required class="form-radio text-indigo-600">
-                                <span class="ml-2">Ward 41</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Player Type -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Player Type</label>
-                        <div class="space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="playerType" value="Batter" required
-                                    class="form-radio text-indigo-600">
-                                <span class="ml-2">Batter</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="playerType" value="Bowler" required
-                                    class="form-radio text-indigo-600">
-                                <span class="ml-2">Bowler</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="playerType" value="All Rounder" required
-                                    class="form-radio text-indigo-600">
-                                <span class="ml-2">All Rounder</span>
-                            </label>
-                        </div>
-                    </div>
+        <!-- Tournament Details -->
+        <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h2 class="text-2xl font-bold mb-4">Tournament Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <h4 class="font-bold text-indigo-600">Date</h4>
+                    <p>March 1-15, 2024</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-600">Venue</h4>
+                    <p>Goregaon Sports Club</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-600">Registration Fee</h4>
+                    <p>₹500 per player</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-600">Last Date</h4>
+                    <p>February 25, 2024</p>
                 </div>
             </div>
-
-            <!-- Step 2: Photos -->
-            <div id="step2" class="step-content hidden">
-                <!-- Photo Upload -->
-                <div class="space-y-6">
-                    <div>
-                        <label for="photo" class="block text-sm font-medium text-gray-700">Photo</label>
-                        <div
-                            class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                            <div class="space-y-1 text-center">
-                                <div id="photoPreview" class="hidden mb-3">
-                                    <img src="" alt="Preview" class="mx-auto h-32 w-32 object-cover rounded-md">
-                                </div>
-                                <div class="flex text-sm text-gray-600">
-                                    <label for="photo"
-                                        class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="photo" name="photo" type="file" class="sr-only" accept="image/*"
-                                            required>
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p class="text-xs text-gray-500">PNG, JPG up to 5MB</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 3: Payment -->
-            <div id="step3" class="step-content hidden">
-                <div class="space-y-6">
-                    <!-- UPI Transaction ID -->
-                    <div>
-                        <label for="upiId" class="block text-sm font-medium text-gray-700">UPI Transaction ID</label>
-                        <input type="text" id="upiId" name="upiId" required
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                        <p class="mt-1 text-xs text-gray-500">Enter the 12-digit transaction ID</p>
-                    </div>
-
-                    <!-- Payment Screenshot -->
-                    <div>
-                        <label for="paymentScreenshot" class="block text-sm font-medium text-gray-700">Payment
-                            Screenshot</label>
-                        <div
-                            class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                            <div class="space-y-1 text-center">
-                                <div id="screenshotPreview" class="hidden mb-3">
-                                    <img src="" alt="Preview" class="mx-auto h-32 w-32 object-cover rounded-md">
-                                </div>
-                                <div class="flex text-sm text-gray-600">
-                                    <label for="paymentScreenshot"
-                                        class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="paymentScreenshot" name="paymentScreenshot" type="file"
-                                            class="sr-only" accept="image/*" required>
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p class="text-xs text-gray-500">PNG, JPG up to 5MB</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="flex justify-between pt-4">
-                <button type="button" id="prevBtn"
-                    class="hidden px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Previous
-                </button>
-                <button type="button" id="nextBtn"
-                    class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Next
-                </button>
-                <button type="submit" id="submitBtn"
-                    class="hidden px-4 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                    Submit Registration
-                </button>
-            </div>
-        </form>
-
-        <!-- Loading Overlay -->
-        <div id="loadingOverlay"
-                class=" hidden flex items-center justify-center fixed inset-0 bg-gray-900 isolate rounded-xl bg-white/30 shadow-lg ">
-                <div class="flex space-x-2">
-                    <div class="w-4 h-4 bg-yellow-500 rounded-full animate-bounce"></div>
-                    <div class="w-4 h-4 bg-red-500 rounded-full animate-bounce [animation-delay:150ms]"></div>
-                    <div class="w-4 h-4 bg-gray-500 rounded-full animate-bounce [animation-delay:300ms]"></div>
-            </div>
-
+        </div>
     </div>
 
-    <script src="script.js">
-        
+    <script>
+        document.querySelector('a[href="/registration.html"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html';  // Redirect to your registration form
+        });
     </script>
+</body>
+</html>
