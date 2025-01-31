@@ -30,7 +30,7 @@ form.addEventListener('submit', (e) => {
   // Convert to URL-encoded string:
   const urlEncoded = new URLSearchParams(fd).toString();
   
-  fetch('http://localhost:3000/api/v1/user/submit-form/', {
+  fetch('https://crispy-succotash-45qv7xvx777f7pwr-3000.app.github.dev/api/v1/user/submit-form/', {
     method: "POST",
     body: fd, // just 'fd' for multipart/form-data
     
