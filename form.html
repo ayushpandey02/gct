@@ -56,6 +56,14 @@
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                         <p class="mt-1 text-xs text-gray-500">Must be between 13 and 45 years</p>
                     </div>
+                    
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="age" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                        <input type="number" id="mobile" name="mobile" minlength="10" maxlength="10" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        <p class="mt-1 text-xs text-gray-500">Enter your mobile number</p>
+                    </div>
 
                     <!-- Ward Selection -->
                     <div>
@@ -127,6 +135,13 @@
             <!-- Step 3: Payment -->
             <div id="step3" class="step-content hidden">
                 <div class="space-y-6">
+                    <!-- QRcode -->
+                    <div>
+                        <label for="qrcode" class="block text-sm font-medium text-gray-700">Sacn for payment...</label>
+                        <img src="./qr-code.png" alt="qrcode" srcset="" 
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
                     <!-- UPI Transaction ID -->
                     <div>
                         <label for="upiId" class="block text-sm font-medium text-gray-700">UPI Transaction ID</label>
