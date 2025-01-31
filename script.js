@@ -193,12 +193,21 @@ function validateStep(stepNumber) {
     // Step-specific validation
     if (stepNumber === 1) {
         const ageInput = document.getElementById('age');
+        const moibleInput = document.querySelector('mobile')
         if (ageInput) {
             const age = parseInt(ageInput.value);
             if (age < 13 || age > 45) {
                 isValid = false;
-                errorMessage += 'Age must be between 16 and 45 years\n';
+                errorMessage += 'Age must be between 13 and 45 years\n';
                 ageInput.classList.add('border-red-500');
+            }
+        }
+        if(moibleInput) {
+            const mobile = parseInt(moibleInput.value)
+            if(mobile.length != 10){
+                isValid = false;
+                errorMessage += 'Mobile Number should be 10 digits';
+                moibleInput.classList.add('border-red-500');
             }
         }
     }
@@ -272,6 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Map to match backend schema
                         formData.append('name', originalFormData.get('name'));
                         formData.append('age', originalFormData.get('age'));
+                        formData.append('mobileNumber', originalFormData.get('mobile'));
                         formData.append('wardNumber', originalFormData.get('ward'));
                         formData.append('role', originalFormData.get('playerType'));
                         formData.append('upiTransactionId', originalFormData.get('upiId'));
