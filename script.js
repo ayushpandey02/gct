@@ -19,24 +19,7 @@ function hideLoading() {
     }
 }
 
-const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent HTML submission
-  
-  // Create payload of type multipart/form-data (awlays of this type when using the FormData() constructor):
-  const fd = new FormData(form);
-
-  // Convert to URL-encoded string:
-  const urlEncoded = new URLSearchParams(fd).toString();
-  
-  fetch('https://crispy-succotash-45qv7xvx777f7pwr-3000.app.github.dev/api/v1/user/submit-form/', {
-    method: "POST",
-    body: fd, // just 'fd' for multipart/form-data
-    
-  })
-
-})
 // Function to handle file uploads
 function handleFileUpload(inputId, previewId) {
     const input = document.getElementById(inputId);
@@ -278,11 +261,36 @@ document.addEventListener('DOMContentLoaded', function () {
             registrationForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (validateStep(currentStep)) {
-                    showLoading();
-                    // Simulate form submission
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    hideLoading();
-                    alert('Registration submitted successfully!');
+                    try {
+                        showLoading();
+                        const formData = new FormData(registrationForm);
+                        
+                        // Log form data for debugging
+                        for (let pair of formData.entries()) {
+                            console.log(pair[0] + ': ' + pair[1]);
+                        }
+            
+                        const response = await fetch('http://localhost:3000/api/v1/user/submit-form', {
+                            method: 'POST',
+                            body: formData,
+                            // Add headers if needed
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+            
+                        console.log('Response status:', response.status);
+                        
+                        const result = await response.json();
+                        console.log('Response:', result);
+                        
+                        hideLoading();
+                        alert('Success: ' + JSON.stringify(result));
+                    } catch (error) {
+                        console.error('Error:', error);
+                        hideLoading();
+                        alert(`Error: ${error.message}`);
+                    }
                 }
             });
         }

@@ -180,9 +180,13 @@
 
         <!-- Loading Overlay -->
         <div id="loadingOverlay"
-            class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
-            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-        </div>
+                class=" hidden flex items-center justify-center fixed inset-0 bg-gray-900 isolate rounded-xl bg-white/30 shadow-lg ">
+                <div class="flex space-x-2">
+                    <div class="w-4 h-4 bg-yellow-500 rounded-full animate-bounce"></div>
+                    <div class="w-4 h-4 bg-red-500 rounded-full animate-bounce [animation-delay:150ms]"></div>
+                    <div class="w-4 h-4 bg-gray-500 rounded-full animate-bounce [animation-delay:300ms]"></div>
+            </div>
+
     </div>
 
     <script src="script.js">
