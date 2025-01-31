@@ -195,7 +195,7 @@ function validateStep(stepNumber) {
         const ageInput = document.getElementById('age');
         if (ageInput) {
             const age = parseInt(ageInput.value);
-            if (age < 16 || age > 45) {
+            if (age < 13 || age > 45) {
                 isValid = false;
                 errorMessage += 'Age must be between 16 and 45 years\n';
                 ageInput.classList.add('border-red-500');
@@ -260,36 +260,44 @@ document.addEventListener('DOMContentLoaded', function () {
         if (registrationForm) {
             registrationForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                btn.classList.add('disabled')
+
                 if (validateStep(currentStep)) {
                     try {
                         showLoading();
-                        const formData = new FormData(registrationForm);
+                        const originalFormData = new FormData(registrationForm);
+                        const formData = new FormData();
                         
-                        // Log form data for debugging
-                        for (let pair of formData.entries()) {
-                            console.log(pair[0] + ': ' + pair[1]);
-                        }
+                        // Map to match backend schema
+                        formData.append('name', originalFormData.get('name'));
+                        formData.append('age', originalFormData.get('age'));
+                        formData.append('wardNumber', originalFormData.get('ward'));
+                        formData.append('role', originalFormData.get('playerType'));
+                        formData.append('upiTransactionId', originalFormData.get('upiId'));
+                        
+                        // Map files
+                        const photoFile = originalFormData.get('photo');
+                        const screenshotFile = originalFormData.get('paymentScreenshot');
+                        formData.append('photo', photoFile);
+                        formData.append('paymentScreenshot', screenshotFile);
             
                         const response = await fetch('http://localhost:3000/api/v1/user/submit-form', {
                             method: 'POST',
-                            body: formData,
-                            // Add headers if needed
-                            headers: {
-                                'Accept': 'application/json'
-                            }
+                            body: formData
                         });
-            
-                        console.log('Response status:', response.status);
                         
                         const result = await response.json();
-                        console.log('Response:', result);
+                        hideLoading();
                         
-                        hideLoading();
-                        alert('Success: ' + JSON.stringify(result));
+                        if (result.error) {
+                            throw new Error(result.error);
+                        }
+                        alert('Registration successful!');
+                        
                     } catch (error) {
-                        console.error('Error:', error);
                         hideLoading();
-                        alert(`Error: ${error.message}`);
+                        alert(error.message);
                     }
                 }
             });
