@@ -202,9 +202,10 @@ function validateStep(stepNumber) {
                 ageInput.classList.add('border-red-500');
             }
         }
+
         if(moibleInput) {
             const mobile = parseInt(moibleInput.value)
-            if(mobile.length != 10){
+            if(mobile.length() != 10){
                 isValid = false;
                 errorMessage += 'Mobile Number should be 10 digits';
                 moibleInput.classList.add('border-red-500');
