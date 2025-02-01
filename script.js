@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
             
                         const response = await fetch('https://gct-backend-phi.vercel.app/api/v1/user/submmit-form', {
                             method: 'POST',
-                            credentials: 'include',
+                            credentials: 'omit',  // Changed from 'include' to 'omit'
                             body: formData
                         });
                         
