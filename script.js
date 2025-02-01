@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         formData.append('photo', photoFile);
                         formData.append('paymentScreenshot', screenshotFile);
             
-                        const response = await fetch('https://gct-backend-phi.vercel.app/api/v1/user/submmit-form', {
+                        const response = await fetch('https://gct-backend-phi.vercel.app/api/v1/user/submit-form', {
                             method: 'POST',
                             credentials: 'omit',  // Changed from 'include' to 'omit'
                             body: formData
