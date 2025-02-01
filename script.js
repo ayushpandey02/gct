@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         formData.append('photo', photoFile);
                         formData.append('paymentScreenshot', screenshotFile);
             
-                        const response = await fetch('http://localhost:3000/api/v1/user/submit-form', {
+                        const response = await fetch('https://gct-backend-phi.vercel.app/api/v1/user/submmit-form', {
                             method: 'POST',
                             body: formData
                         });
